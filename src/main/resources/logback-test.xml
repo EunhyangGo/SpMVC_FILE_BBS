@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- logger가 log를 표시할때 어떻게 표시할 것인지를 설정하는 부분 -->
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+	<encoder>
+		<charset>UTF-8</charset>
+	<pattern>
+		%d{HH:mm:ss:SSS} [%thread] %-5level %logger{5} - %msg%n
+		<!-- 시간(SSS:초 이하단위)스레드  레벨을 다섯글자로 보여라, logger5번째 레벨로. 메세지를 표시해주고 %n(엔터를치자) -->
+	</pattern>
+	</encoder>
+	</appender>
+	<!-- 
+		level 등위
+		error, warn, info, debug, trace
+	 -->
+	
+	<logger name="com.biz.fileup" level="debug">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+	
+	<root level="debug">
+		<appender-ref ref="consoleAppender" />
+	</root>
+</configuration>
